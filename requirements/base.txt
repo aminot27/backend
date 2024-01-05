@@ -17,8 +17,6 @@ psycopg2==2.9.1  # https://github.com/psycopg/psycopg2
 ######### Django ########
 django==4
 
-######### Environment handler ########
-django-environ-2
 
 ######### Django REST Framework ########
 djangorestframework==3.12.4
