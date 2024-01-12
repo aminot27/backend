@@ -29,3 +29,6 @@ class ProductRepository:
     @staticmethod
     def soft_delete_product(product_id):
         return Product.objects.soft_delete_one(primary_key=product_id)
+
+    def get_product_by_sku(self, sku):
+        return Product.objects.filter(sku=sku).first()

@@ -101,3 +101,14 @@ class ProductDetailView(BaseAPIView):
             raise NotFound(detail="Product not found")
         else:
             return SuccessResponse(data_=ProductSerializer(product).data).send()
+
+
+class ProductSKUView(BaseAPIView):
+    permission_classes = [IsAuthenticated]
+    product_repository = ProductRepository()
+
+    def get(self, request, sku):
+        product = self.product_repository.get_product_by_sku(sku)
+        if product is None:
+            raise NotFound(detail="Product not found")
+        return SuccessResponse(data_=ProductSerializer(product).data).send()

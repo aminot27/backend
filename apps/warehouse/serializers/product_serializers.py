@@ -23,6 +23,7 @@ class ProductBasicSerializer(serializers.ModelSerializer):
         fields = ('name',)
 
 class ProductCreateRequest(serializers.ModelSerializer):
+    image = serializers.ImageField(max_length=None, allow_empty_file=True, use_url=True, required=False)
     class Meta:
         model = Product
         exclude = ('status', 'modified')

@@ -14,7 +14,7 @@ from apps.warehouse.api_views.product_input_views import ProductInputView, Produ
 from apps.warehouse.api_views.product_output_views import ProductOutputView, ProductOutputsView, ProductOutputDetailView
 from apps.warehouse.api_views.product_detail_views import ProductDetailView_2, ProductDetailsView, ProductDetailDetailView
 
-
+from apps.warehouse.api_views.product_views import ProductSKUView
 
 urlpatterns = [
     path('brand/', BrandView.as_view(), name='create_brand'),
@@ -68,4 +68,7 @@ urlpatterns = [
     path('product_detail/', ProductDetailView_2.as_view(), name='create_product_detail'),
     path('product_details/filter/', ProductDetailsView.as_view(), name='filter_product_details'),
     path('product_detail/<int:pk>/', ProductDetailDetailView.as_view(), name='modify_product_detail'),
+
+    path('products/sku/<str:sku>/', ProductSKUView.as_view(), name='product-sku'),
 ]
+
